@@ -20,6 +20,3 @@ This script automates the process of downloading and updating a server using Ste
 2. Run the script:
 
 3. The script will create a `SteamCMD` folder in the current directory, download and extract SteamCMD, and run the update command using the environment variables.
-
-## Customization
-You can customize the script by editing the `create_file()` and `download_and_extract()` functions in the `scripts.py` file.
