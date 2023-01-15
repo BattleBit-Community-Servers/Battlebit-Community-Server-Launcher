@@ -25,3 +25,4 @@ This script automates the process of downloading and updating a server using Ste
 
 You can use the `server.py` file to launch the server after the download script has completed.
 Make sure you set the server varuables  in the .env file befire running the script.
+
