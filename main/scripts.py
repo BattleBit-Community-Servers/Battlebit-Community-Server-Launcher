@@ -5,51 +5,64 @@ import zipfile
 import subprocess
 
 def create_file():
+    """Creates a file update.txt in the SteamCMD folder with the commands to be executed."""
+    # Environment variables
+    server = os.getenv("SERVER")
+    username = os.getenv("USERNAMER")
+    password = os.getenv("PASSWORD")
+    beta_password = os.getenv("BETAPASSWORD")
+
     # File content
-    content = '''// update battlebit server
+    content = f'''// update battlebit server
     //
     @ShutdownOnFailedCommand 1
     @NoPromptForPassword 1
     force_install_dir {server}
-    login {usernamer} {password}
-    app_update 1611740 -beta community-server -betapassword {betapassword} validate
-    quit'''.format(
-        server=os.environ.get("SERVER"),
-        usernamer=os.environ.get("USERNAMER"),
-        password=os.environ.get("PASSWORD"),
-        betapassword=os.environ.get("BETAPASSWORD")
-    )
+    login {username} {password}
+    app_update 1611740 -beta community-server -betapassword {beta_password} validate
+    quit'''
+
+    # Directory name
+    folder_name = "SteamCMD"
+
+    # Check and create directory if it doesn't exist
+    os.makedirs(folder_name, exist_ok=True)
 
     # File name and location
-    folder_name = "SteamCMD"
     file_name = os.path.join(folder_name, "update.txt")
 
-    # Create the folder if it doesn't exist
-    if not os.path.exists(folder_name):
-        os.makedirs(folder_name)
-
-    # Write to file
+    # Write content to file
     with open(file_name, "w") as file:
         file.write(content)
 
-def download_and_extract():
-    # Creating a temporary directory
-    temp_dir = tempfile.mkdtemp()
-    folder_name = "SteamCMD"
-    file_name = os.path.join(folder_name, "update.txt")
 
-    # Download the file from `url` and save it locally under `file_name`:
+def download_and_extract():
+    """Downloads a zip file, extracts it to the SteamCMD directory and runs the SteamCMD update.txt script."""
+    # Directory and file names
+    folder_name = "SteamCMD"
+    file_name = "update.txt"
+
+    # URL to download the zip file from
     url = "https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip"
-    file_name = os.path.join(temp_dir, "steamcmd.zip")
-    urllib.request.urlretrieve(url, file_name)
+
+    # Create a temporary directory
+    temp_dir = tempfile.mkdtemp()
+
+    # Download location
+    download_location = os.path.join(temp_dir, "steamcmd.zip")
+
+    # Download the zip file
+    urllib.request.urlretrieve(url, download_location)
 
     # Extract the zip file
-    with zipfile.ZipFile(file_name, 'r') as zip_ref:
+    with zipfile.ZipFile(download_location, 'r') as zip_ref:
         zip_ref.extractall(folder_name)
 
-    # Remove the zip file
-    os.remove(file_name)
+    # Remove the downloaded zip file
+    os.remove(download_location)
 
-    # Launch SteamCMD.exe
+    # Path to the SteamCMD executable
     steamcmd_path = os.path.join(folder_name, "steamcmd.exe")
-    subprocess.run([steamcmd_path, "+runscript", "update.txt"])
+
+    # Run the SteamCMD script
+    subprocess.run([steamcmd_path, "+runscript", file_name])
