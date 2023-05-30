@@ -13,6 +13,16 @@ if ($null -eq $python_path) {
 } else {
     Write-Host "Python is installed."
 }
+
+# Adding Python package installation from requirements.txt
+$requirements_path = "requirements.txt"
+if (Test-Path $requirements_path) {
+    Write-Host "Installing Python packages from requirements.txt..."
+    python -m pip install -r requirements.txt
+} else {
+    Write-Host "requirements.txt not found. Skipping package installation."
+}
+
 Write-Host "Running server.py..."
 python server.py
 Read-Host -Prompt "Press Enter to exit"
