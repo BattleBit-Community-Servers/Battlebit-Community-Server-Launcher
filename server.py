@@ -1,4 +1,3 @@
-# server.py
 import subprocess
 from dotenv import load_dotenv
 import os
@@ -14,10 +13,6 @@ args.insert(0, os.getenv("SERVER_PATH"))
 args.append("-batchmode")
 args.append("-nographics")
 
-folder_name = "SteamCMD"
-steamcmd_path = os.path.join(folder_name, "steamcmd.exe")
-if "-noupdate" not in sys.argv:
-    subprocess.run([steamcmd_path, "+runscript", "update.txt"])
 try:
     subprocess.run(args)
 except KeyboardInterrupt:
