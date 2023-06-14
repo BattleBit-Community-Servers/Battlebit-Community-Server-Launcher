@@ -10,6 +10,7 @@ def create_file():
     server = os.getenv("SERVER")
     username = os.getenv("USERNAMER")
     password = os.getenv("PASSWORD")
+    appid = os.getenv("APPID")
     beta_password = os.getenv("BETAPASSWORD")
 
     # File content
@@ -19,7 +20,7 @@ def create_file():
     @NoPromptForPassword 1
     force_install_dir {server}
     login {username} {password}
-    app_update 1611740 -beta community-server -betapassword {beta_password} validate
+    app_update {appid} -beta community-server -betapassword {beta_password} validate
     quit'''
 
     # Directory name
