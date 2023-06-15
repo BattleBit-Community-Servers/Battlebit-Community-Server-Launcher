@@ -5,6 +5,7 @@ This script automates the process of downloading and updating a server using Ste
 ## Requirements
 - Python 3
 - Windows 10/11
+- Server Steam Account Requires Ownership of the Full BattleBit Remastered Game
 
 ## Usage
 
