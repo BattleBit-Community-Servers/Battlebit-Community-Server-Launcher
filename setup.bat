@@ -9,5 +9,5 @@ if exist requirements.txt (
 )
 
 echo Running download.py...
-python3 download.py
+python download.py
 pause

@@ -9,5 +9,5 @@ if exist requirements.txt (
 )
 
 echo Running server.py...
-python3 server.py
+python server.py
 pause
