@@ -1,3 +1,4 @@
+# Your Server Must Be Whitelisted to connect to the master server
 # This will be updated with any new changes made to the servers on the games release. Scripts Might Break. 
 Contact `jellisy` on discord to report any issues
 
