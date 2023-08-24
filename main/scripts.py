@@ -19,7 +19,7 @@ def create_file():
     @NoPromptForPassword 1
     force_install_dir {server}
     login {username} {password}
-    app_update {appid} -beta community-server validate
+    app_update {appid} -beta community-testing validate
     quit'''
 
     # Directory name
