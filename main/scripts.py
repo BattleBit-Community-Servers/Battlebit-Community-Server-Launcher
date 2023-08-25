@@ -8,7 +8,7 @@ def create_file():
     """Creates a file update.txt in the SteamCMD folder with the commands to be executed."""
     # Environment variables
     server = os.getenv("SERVER")
-    username = os.getenv("USERNAMER")
+    username = os.getenv("USERNAME")
     password = os.getenv("PASSWORD")
     appid = os.getenv("APPID")
 
