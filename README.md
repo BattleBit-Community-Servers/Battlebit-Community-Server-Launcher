@@ -33,6 +33,7 @@ Follow these steps to set up and update your server:
    - `PASSWORD`: Your Steam password
    - `APPID`: Server App ID (e.g., `671860`)
    - `BETAPASSWORD`: Password for beta access (if applicable)
+   - `BRANCH`: The Branch That the Script will install
    - `SERVER`: Installation path for the server files
 
    > **Note:** Use a second Steam account that owns the game for running the server.
@@ -67,6 +68,5 @@ Adjust the server configuration to your preferences by editing the `.env` file:
 
 ## Contact
 
-If you encounter any issues during the setup process, please reach out to `jellisy` on Discord. They are available to assist and address any concerns.
+If you encounter any issues during the setup process, please reach out to `jellisy` on the [Support Discord](https://discord.gg/vAP7Ru5EQb). They are available to assist and address any concerns.
 
-Thank you for choosing BattleBit Remastered. Get ready to enjoy an enhanced gaming experience on your dedicated server!
