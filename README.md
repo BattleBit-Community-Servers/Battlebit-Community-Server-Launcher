@@ -50,7 +50,7 @@ Follow these steps to set up and update your server:
 
 Adjust the server configuration to your preferences by editing the `.env` file:
 
-- `SERVER_PATH`: Path to your server executable
+- `SERVER_PATH`: Path to your server executable **[DONT USE THE EAC EXE]**
 - `SERVER_NAME`: Name for your server
 - `SERVER_PORT`: Port number for the server
 - `SERVER_HZ`: Server tick rate (Hz)
