@@ -11,6 +11,8 @@ def create_file():
     username = os.getenv("USERNAMER")
     password = os.getenv("PASSWORD")
     appid = os.getenv("APPID")
+    betapassword = os.getenv("BETAPASSWORD")
+    branch = os.getenv("BRANCH")
 
     # File content
     content = f'''// update battlebit server
@@ -19,7 +21,7 @@ def create_file():
     @NoPromptForPassword 1
     force_install_dir {server}
     login {username} {password}
-    app_update {appid} -beta community-testing validate
+    app_update {appid} -beta {branch} {betapassword} validate
     quit'''
 
     # Directory name
