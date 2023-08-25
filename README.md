@@ -16,7 +16,7 @@ This script automates the process of downloading and updating a server using Ste
 
 1. Set the following environment variables:
   - `SERVER`: the path to the server installation directory
-  - `USERNAME`: your Steam username
+  - `USERNAMER`: your Steam username
   - `PASSWORD`: your Steam password
   - `APPID`: Server APP ID
   - `BETAPASSWORD`: the password for the beta branch of the server
