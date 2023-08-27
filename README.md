@@ -16,6 +16,7 @@ Before you begin, ensure you have the following prerequisites:
 
 - Python 3
 - Windows 10/11
+   - Window Server 2016/2022
 - A Steam account with ownership of the full BattleBit Remastered game
 - Download the latest **Release**
 
