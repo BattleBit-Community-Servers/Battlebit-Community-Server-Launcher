@@ -44,7 +44,11 @@ Follow these steps to set up and update your server:
 
 3. **Launch the Server**:
 
-   Once the download and update are complete, use the `server.py` script to start the server. Ensure you've correctly configured the server-related variables in the `.env` file before running the script.
+   Once the download and update are complete, use the appropriate batch file to start the server:
+   - `server+api.bat`: Run the server with the API enabled.
+   - `server+noapi.bat`: Run the server without the API.
+
+   Ensure you've correctly configured the server-related variables in the `.env` file before running the script.
 
 ---
 
@@ -69,4 +73,3 @@ Adjust the server configuration to your preferences by editing the `.env` file:
 ## Contact
 
 If you encounter any issues during the setup process, please reach out to `jellisy` on the [Support Discord](https://discord.gg/vAP7Ru5EQb). They are available to assist and address any concerns.
-
