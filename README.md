@@ -1,3 +1,6 @@
+# THIS IS BEING REWORKED.
+# THERE IS GOING TO BE A BIG UPDATE TO THIS THAT WILL REPLACE EVERYTHING
+
 # BattleBit Remastered Server Setup Guide
 
 Welcome to the BattleBit Remastered Server Setup Guide. This guide provides step-by-step instructions on how to set up and update your game server using SteamCMD.
