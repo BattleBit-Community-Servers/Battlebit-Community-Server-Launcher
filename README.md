@@ -1,79 +1,71 @@
-# THIS IS BEING REWORKED.
-# THERE IS GOING TO BE A BIG UPDATE TO THIS THAT WILL REPLACE EVERYTHING
-
 # BattleBit Remastered Server Setup Guide
-
 Welcome to the BattleBit Remastered Server Setup Guide. This guide provides step-by-step instructions on how to set up and update your game server using SteamCMD.
 
-## Table of Contents
-- [Requirements](#requirements)
-- [Usage](#usage)
-- [Configuration](#configuration)
-- [Contact](#contact)
+### Get Support Here [Support Discord](https://discord.gg/5HVygFQJaja)
 
----
+### Prerequisites
 
-## Requirements
+1.  **Python 3.12.0**: Make sure you have Python installed on your system. You can download Python from [python.org](https://www.python.org/downloads/).
+2.  **`A Steam Account that Owns BattleBit Remastered`**
+3.  **Server will only connect to master server `if you are whitelisted by developers`**
 
-Before you begin, ensure you have the following prerequisites:
+### 1. Configuration Files
 
-- Python 3
-- Windows 10/11
-   - Window Server 2016/2019/2022
-- A Steam account with ownership of the full BattleBit Remastered game
-- Download the latest **Release**
+-   There are two configuration files in this project:
 
----
+    -   **`setup_config.ini`**: Located in the root directory, this file needs to be filled in first with setup configurations.
+    -   **`config.ini`**: Located in the **`Server`** directory, this file contains server-specific settings like server name, port, and executable path. It should be configured after running the setup script.
 
-## Usage
+-   Open the **`setup_config.ini`** file located in the root directory.
+-   Edit this file to include any setup configurations you need for your server.
 
-Follow these steps to set up and update your server:
+### 2. Running the Setup Script
 
-1. **Set Environment Variables**:
+1.  Open a command prompt or terminal.
+2.  Navigate to the root directory of your project (**`Battlebit-Community-Server-Launcher`**).
 
-   Before proceeding, configure the required environment variables by editing the `.env` file provided. Update the values to match your setup. Here are the key variables to set:
+3.  Run the setup script:
 
-   - `USERNAMER`: Your Steam username
-   - `PASSWORD`: Your Steam password
-   - `APPID`: Server App ID (e.g., `671860`)
-   - `BETAPASSWORD`: Password for beta access (if applicable)
-   - `BRANCH`: The Branch That the Script will install
-   - `SERVER`: Installation path for the server files
+    ```bash
+    python setup.py
+    ```
 
-   > **Note:** Use a second Steam account that owns the game for running the server.
+    -   The script will read the configuration from setup_config.ini and set up the server according to the specified setup configurations.
 
-2. **Run the Script**:
+### 3. Configuring the Server
 
-   Execute the script to automate the server download and update process. The script will create a `SteamCMD` folder, download and extract SteamCMD, and initiate the update using the provided environment variables.
+-   Now that the initial setup is complete, open the **`config.ini`** file located in the Server directory.
+-   Edit the **`[Server Settings]`** and **`[Server Configuration]`** sections to match your server's specifications. Fill in the required values such as server name, port, executable path, etc.
 
-3. **Launch the Server**:
+### 4. Running the Server
 
-   Once the download and update are complete, use the appropriate batch file to start the server:
-   - `server+api.bat`: Run the server with the API enabled.
-   - `server+noapi.bat`: Run the server without the API.
+1.  Open a command prompt or terminal.
 
-   Ensure you've correctly configured the server-related variables in the `.env` file before running the script.
+2.  Navigate to the root directory of your project (Battlebit-Community-Server-Launcher).
 
----
+3.  Run the server script:
 
-## Configuration
+    ```bash
+    python start.py
+    ```
 
-Adjust the server configuration to your preferences by editing the `.env` file:
+    -   The script will read the configuration from **`Server/config.ini`** and any additional setup configurations from **`setup_config.ini`**.
+    -   It will then start the server executable with the specified options.
+    -   A log file will be generated in the directory specified in the **`[Server Settings]`** section of **`config.ini`**.
+    -   If any errors occur during execution, they will be displayed in the command prompt or terminal.
 
-- `SERVER_PATH`: Path to your server executable **[DONT USE THE EAC EXE]**
-- `SERVER_NAME`: Name for your server
-- `SERVER_PORT`: Port number for the server
-- `SERVER_HZ`: Server tick rate (Hz)
-- `SERVER_ANTICHEAT`: Anti-cheat system to use
-- `SERVER_MAX_PING`: Maximum allowed player ping
-- `SERVER_VOXEL_MODE`: Enable voxel mode (true/false)
-- `SERVER_API_ENDPOINT`: API endpoint for the server
-- `SERVER_FIXED_SIZE`: Server size
-- `SERVER_FIRST_GAMEMODE`: Initial game mode
-- `SERVER_FIRST_MAP`: Initial map
+### 5. Stopping the Server
 
----
+To stop the server, **press `Ctrl+C`** in the command prompt or terminal where the script is running. This will gracefully shut down the server.
 
-## Contact
+### 6. Additional Notes
 
-If you encounter any issues during the setup process, please reach out to `jellisy` on the [Support Discord](https://discord.gg/vAP7Ru5EQb). They are available to assist and address any concerns.
+-   Ensure that the paths provided in the configuration files are correct and point to the actual server executable and working directory.
+
+-   Make sure your server executable is compatible with the provided configuration.
+
+-   If you encounter any issues or have questions, refer to the error messages in the command prompt or terminal for troubleshooting.
+
+-   Always keep backups of your server data and configurations to avoid data loss.
+
+Enjoy running your server with this setup script! **Make sure to add `BBCS` to your support message to recive support**

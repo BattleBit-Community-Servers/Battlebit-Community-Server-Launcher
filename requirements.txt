@@ -1,2 +1,6 @@
-termcolor
-python-dotenv
+configparser
+subprocess
+configparser
+sys 
+datetime
+os
