@@ -1,7 +1,7 @@
 import subprocess
 import os
 import configparser
-
+import shutil  # Import the shutil module
 
 # Function to install SteamCMD
 def install_steamcmd():
@@ -39,7 +39,6 @@ def install_steamcmd():
     except Exception as e:
         print(f"Error installing SteamCMD: {str(e)}")
 
-
 # Function to read values from setup_config.ini
 def read_config():
     config = configparser.ConfigParser()
@@ -52,9 +51,22 @@ def read_config():
     )
     return force_install_dir, username, password, steamcmd_path
 
+# Update steamcmd_directory in setup_config.ini
+def update_steamcmd_directory(steamcmd_directory):
+    config = configparser.ConfigParser()
+    config.read("setup_config.ini")
+    config.set("ServerConfig", "steamcmd_directory", steamcmd_directory)
+    with open("setup_config.ini", "w") as config_file:
+        config.write(config_file)
 
 # Install SteamCMD
 install_steamcmd()
+
+# Get the directory path of the 'steamcmd' folder
+steamcmd_directory = os.path.abspath("steamcmd")
+
+# Update the steamcmd_directory in setup_config.ini
+update_steamcmd_directory(steamcmd_directory)
 
 # Read values from setup_config.ini
 force_install_dir, username, password, steamcmd_path = read_config()
@@ -77,11 +89,10 @@ with open(file_path, "w") as file:
 
 print(f'The text file "{file_path}" has been generated with the specified contents.')
 
-# Update the steamcmd_path in setup_config.ini
-config = configparser.ConfigParser()
-config.read("setup_config.ini")
-config.set("Setup", "steamcmd_path", steamcmd_path)
-with open("setup_config.ini", "w") as config_file:
-    config.write(config_file)
+# Move the steamcmd_script.txt to the steamcmd folder
+destination_path = os.path.join("steamcmd", file_path)
+shutil.move(file_path, destination_path)
+
+print(f'The "{file_path}" file has been moved to the "steamcmd" folder.')
 
 print("The SteamCMD path has been updated in setup_config.ini.")
