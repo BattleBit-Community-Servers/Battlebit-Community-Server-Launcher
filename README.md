@@ -10,6 +10,22 @@ Welcome to the BattleBit Remastered Server Setup Guide. This guide provides step
 2. **`A Steam Account that Owns BattleBit Remastered`**
 3. **Server will only connect to master server `if you are whitelisted by developers`**
 
+## Installing Dependencies
+
+To set up the necessary dependencies for the BattleBit Remastered server, follow these steps:
+
+1. Open a command prompt or terminal.
+
+2. Navigate to the root directory of your project where the `requirements.txt` file is located.
+
+3. Run the following command to install the required Python packages:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+   This command will read the requirements.txt file and automatically install all the specified packages.
+
 ### 1. Configuration Files
 
 - There are two configuration files in this project:
