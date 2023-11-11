@@ -1,12 +1,21 @@
 import subprocess
 import os
 import configparser
-import shutil  # Import the shutil module
+import shutil
+import logging  # Import the logging module
+
+# Create the 'logs' folder if it doesn't exist
+os.makedirs("logs", exist_ok=True)
+
+# Configure logging
+log_file = os.path.join("logs", "setup.log")
+logging.basicConfig(filename=log_file, level=logging.DEBUG,
+                    format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Function to install SteamCMD
 def install_steamcmd():
     try:
-        print("Installing SteamCMD...")
+        logging.info("Installing SteamCMD...")
 
         # Create a folder named 'steamcmd'
         os.makedirs("steamcmd", exist_ok=True)
@@ -35,9 +44,9 @@ def install_steamcmd():
             ]
         )
 
-        print("SteamCMD has been installed successfully.")
+        logging.info("SteamCMD has been installed successfully.")
     except Exception as e:
-        print(f"Error installing SteamCMD: {str(e)}")
+        logging.error(f"Error installing SteamCMD: {str(e)}")
 
 # Function to read values from setup_config.ini
 def read_config():
@@ -87,12 +96,12 @@ file_path = "steamcmd_script.txt"
 with open(file_path, "w") as file:
     file.write(file_content)
 
-print(f'The text file "{file_path}" has been generated with the specified contents.')
+logging.info(f'The text file "{file_path}" has been generated with the specified contents.')
 
 # Move the steamcmd_script.txt to the steamcmd folder
 destination_path = os.path.join("steamcmd", file_path)
 shutil.move(file_path, destination_path)
 
-print(f'The "{file_path}" file has been moved to the "steamcmd" folder.')
+logging.info(f'The "{file_path}" file has been moved to the "steamcmd" folder.')
 
-print("The SteamCMD path has been updated in setup_config.ini.")
+logging.info("The SteamCMD path has been updated in setup_config.ini.")
