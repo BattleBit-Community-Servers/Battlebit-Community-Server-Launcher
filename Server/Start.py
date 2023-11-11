@@ -5,8 +5,10 @@ import datetime
 
 
 def get_server_configuration(config_file):
+    """
+    Read server configuration from the config file.
+    """
     try:
-        # Read server configuration from the config file
         config = configparser.ConfigParser()
         config.read(config_file)
 
@@ -31,8 +33,10 @@ def get_server_configuration(config_file):
 
 
 def get_arguments_from_config(config_file):
+    """
+    Read arguments from the specified INI file.
+    """
     try:
-        # Read arguments from the specified INI file
         config = configparser.ConfigParser()
         config.read(config_file)
 
@@ -48,30 +52,30 @@ def get_arguments_from_config(config_file):
 
 
 def generate_log_filename(log_location):
+    """
+    Generate a log filename using the current time and log location.
+    """
     current_time = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
     return f"{log_location}\\log_{current_time}.txt"
 
 
 def main():
+    """
+    Main function to execute the script.
+    """
     try:
-        # Specify the path to your config file
         config_file = "config.ini"
 
-        # Get the executable path and working directory from the config file
         executable_path, working_directory = get_server_configuration(config_file)
-
         if not executable_path or not working_directory:
             sys.exit(1)
 
-        # Read the log location from the config file
         config = configparser.ConfigParser()
         config.read(config_file)
         log_location = config.get("Server Settings", "LogLocation")
 
-        # Generate the log filename using the log location
         log_filename = generate_log_filename(log_location)
 
-        # Build the command to start the executable
         cmd = [
             executable_path,
             "-batchmode",
@@ -80,15 +84,11 @@ def main():
             log_filename,
         ] + get_arguments_from_config(config_file)
 
-        # If cmd list only contains the executable, it means an error occurred
         if len(cmd) == 1:
             print("Exiting due to errors.")
             sys.exit(1)
 
-        # Use subprocess.Popen to run the command with the specified working directory
         process = subprocess.Popen(cmd, cwd=working_directory)
-
-        # Wait for the process to complete
         process.wait()
 
         if process.returncode != 0:

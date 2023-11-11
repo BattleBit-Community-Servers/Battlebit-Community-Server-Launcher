@@ -1,7 +1,7 @@
 import os
 import subprocess
 import configparser
-import logging  # Import the logging module
+import logging
 
 # Create the 'logs' folder if it doesn't exist
 os.makedirs("logs", exist_ok=True)
@@ -11,8 +11,12 @@ log_file = os.path.join("logs", "update.log")
 logging.basicConfig(filename=log_file, level=logging.DEBUG,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
-# Function to log messages
 def log(message):
+    """
+    Log a message to both the file and stdout.
+
+    :param message: String to be logged.
+    """
     logging.info(message)
     print(message)
 
@@ -20,17 +24,17 @@ def log(message):
 config = configparser.ConfigParser()
 
 # Path to your INI configuration file
-ini_file_path = "setup_config.ini"  # Update with the actual path to your INI file
+INI_FILE_PATH = "setup_config.ini"  # Update with the actual path to your INI file
 
 # Check if the INI file exists
-if not os.path.exists(ini_file_path):
-    error_message = f"Error: Config file {ini_file_path} not found."
+if not os.path.exists(INI_FILE_PATH):
+    error_message = f"Error: Config file {INI_FILE_PATH} not found."
     log(error_message)
     print(error_message)
     exit(1)
 
 # Read the INI file
-config.read(ini_file_path)
+config.read(INI_FILE_PATH)
 
 # Get the SteamCMD directory from the INI file
 STEAMCMD_DIR = config.get("ServerConfig", "SteamCMD_Directory")
