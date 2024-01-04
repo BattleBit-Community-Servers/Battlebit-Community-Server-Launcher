@@ -2,7 +2,7 @@
 
 Welcome to the BattleBit Remastered Server Setup Guide. This guide provides step-by-step instructions on how to set up and update your game server using SteamCMD.
 
-## Get Support Here [Support Discord](https://discord.gg/5HVygFQJaja)
+## Get Support Here [Support Discord](https://battlebit.community/server/discord)
 
 ### Prerequisites
 
