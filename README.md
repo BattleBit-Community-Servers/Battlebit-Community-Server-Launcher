@@ -4,6 +4,9 @@
 >
 >Currently they are not accept more people into the community hosting pool
 
+>[!IMPORTANT]
+>This is currently in Early Alpha
+
 This is the **Unofficial** BattleBit Community Server Launcher. It provides a graphical interface to easily set up, manage, and launch BattleBit game servers.
 
 ## Features
