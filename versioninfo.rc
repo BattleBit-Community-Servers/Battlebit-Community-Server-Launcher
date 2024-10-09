@@ -1,0 +1,26 @@
+1 ICON "resources/BBCS_White_Large.ico"
+
+1 VERSIONINFO
+FILEVERSION 3,0,0,0
+PRODUCTVERSION 3,0,0,0
+FILEOS 0x4
+FILETYPE 0x1
+{
+    BLOCK "StringFileInfo"
+    {
+        BLOCK "040904E4"
+        {
+            VALUE "FileDescription", "BattleBit Server Launcher"
+            VALUE "CompanyName", "Your Company Name"
+            VALUE "FileVersion", "3.0.0.0"
+            VALUE "ProductName", "BattleBit Server Launcher"
+            VALUE "ProductVersion", "3.0.0.0"
+        }
+    }
+    BLOCK "VarFileInfo"
+    {
+        VALUE "Translation", 0x409, 1252
+    }
+}
+
+1 24 "manifest.xml"

@@ -1,0 +1,16 @@
+# Ignore compiled files
+target/
+
+# Ignore Cargo.lock for libraries
+Cargo.lock
+
+# Ignore build artifacts
+*.rlib
+*.o
+
+# Ignore logs
+*.log
+
+# Ignore SteamCMD files
+steamcmd/
+steamcmd.zip
